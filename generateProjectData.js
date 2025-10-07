@@ -65,7 +65,7 @@ async function generateProjectData() {
       finalData[name] = {
         ...(existing[name] || {
           description: "",
-          image: `/public/projetos/${name}.png`,
+          image: `/projetos/${name}.png`,
         }),
         link: lastDeployURL || `https://${name}.vercel.app`, // fallback
       };

@@ -1,17 +1,17 @@
 {
   "portfolio-react": {
     "description": "",
-    "image": "/public/projetos/portfolio-react.png",
-    "link": "https://portfolio-react-6gtxgtdl5-kaykehu3s-projects.vercel.app"
+    "image": "/projetos/portfolio-react.png",
+    "link": "https://portfolio-react-ofv1ab98w-kaykehu3s-projects.vercel.app"
   },
   "portfolio-angular": {
     "description": "",
-    "image": "/public/projetos/portfolio-angular.png",
+    "image": "/projetos/portfolio-angular.png",
     "link": "https://portfolio-angular-9r11056ri-kaykehu3s-projects.vercel.app"
   },
   "footwear-model-manager-41k8": {
     "description": "",
-    "image": "/public/projetos/footwear-model-manager-41k8.png",
+    "image": "/projetos/footwear-model-manager-41k8.png",
     "link": "https://footwear-model-manager-41k8-9g1l5iava-kaykehu3s-projects.vercel.app"
   }
 }
