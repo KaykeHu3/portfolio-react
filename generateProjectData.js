@@ -31,19 +31,40 @@ async function getProjects() {
   return res.data.projects;
 }
 
+async function getPublicDomain(projectId) {
+  try {
+    const res = await vercelAPI.get(`/v2/aliases`, {
+      params: { projectId },
+    });
+    const aliases = res.data.aliases;
+
+    if (!aliases || aliases.length === 0) return null;
+
+    return `https://${aliases[0].alias}`;
+  } catch (err) {
+    console.warn(`Não foi possível buscar alias para ${projectId}`);
+    return null;
+  }
+}
+
 async function getLastDeploymentURL(projectId) {
-  const res = await vercelAPI.get(`/v6/deployments`, {
-    params: {
-      projectId,
-      limit: 1,
-    },
-  });
+  try {
+    const res = await vercelAPI.get(`/v6/deployments`, {
+      params: {
+        projectId,
+        limit: 1,
+      },
+    });
 
-  const deployments = res.data.deployments;
-  if (deployments.length === 0) return null;
+    const deployments = res.data.deployments;
+    if (deployments.length === 0) return null;
 
-  const deployment = deployments[0];
-  return `https://${deployment.url}`; // <- URL real do último deploy
+    const deployment = deployments[0];
+    return `https://${deployment.url}`; // <- URL real do último deploy
+  } catch (err) {
+    console.warn(`Erro ao buscar último deploy de ${projectId}`);
+    return null;
+  }
 }
 
 async function generateProjectData() {
@@ -60,17 +81,23 @@ async function generateProjectData() {
 
     for (const proj of projects) {
       const { id, name } = proj;
-      const lastDeployURL = await getLastDeploymentURL(id);
+      let link = await getPublicDomain(id);
+      if (!link) {
+        link = await getLastDeploymentURL(id);
+      }
+      if (!link) {
+        link = `https://${name}.vercel.app`;
+      }
 
       finalData[name] = {
         ...(existing[name] || {
           description: "",
           image: `/projetos/${name}.png`,
         }),
-        link: lastDeployURL || `https://${name}.vercel.app`, // fallback
+        link,
       };
 
-      console.log(`✅ ${name} → ${finalData[name].link}`);
+      console.log(`✅ ${name} → ${link}`);
     }
 
     fs.mkdirSync(OUTPUT_DIR, { recursive: true });
