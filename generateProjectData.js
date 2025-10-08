@@ -91,7 +91,6 @@ async function generateProjectData() {
 
       finalData[name] = {
         ...(existing[name] || {
-          description: "",
           image: `/projetos/${name}.png`,
         }),
         link,

@@ -18,7 +18,7 @@ const icons = [
 
 export default function Knowledge() {
   return (
-    <div className="flex gap-5 mt-4">
+    <div className="flex gap-4 sm:gap-5 mt-5">
       {icons.map((item, index) => (
         <div
           key={index}
@@ -28,7 +28,7 @@ export default function Knowledge() {
             src={item.icon}
             alt={item.name}
             title={item.name}
-            className="h-[40px] w-[40px] bg-gradient-to-br from-gray-700 to-gray-700/10 p-1 rounded"
+            className="h-10 w-10 bg-gradient-to-br from-gray-700 to-gray-700/10 p-1 rounded"
           />
         </div>
       ))}

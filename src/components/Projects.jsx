@@ -2,15 +2,15 @@ import projectData from "../data/projectData.json";
 
 export default function ProjectsGrid() {
   return (
-    <section className="flex flex-col items-center mt-8">
-      <h2 className="text-2xl font-open-sans font-[700] text-center mb-1">
+    <section className="flex flex-col items-center mt-5">
+      <h2 className="text-2xl font-open-sans font-[700] text-center">
         Meus Projetos
       </h2>
       <a
         href="https://github.com/KaykeHu3"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex w-fit mb-5 justify-center items-center gap-2 bg-gradient-to-br from-gray-600 to-black p-3 rounded shadow-lg hover:bg-gradient-to-b hover:from-gray-400 hover:to-gray-900 hover:scale-105 transition-all duration-300"
+        className="w-fit mt-5 md:mb-5 justify-center items-center bg-gradient-to-br from-gray-600 to-black p-3 rounded shadow-lg hover:bg-gradient-to-b hover:from-gray-400 hover:to-gray-900 hover:scale-105 transition-all duration-300"
         aria-label="Acessar meu GitHub"
       >
         <svg
@@ -31,11 +31,11 @@ export default function ProjectsGrid() {
           />
         </svg>
       </a>
-      <div className="flex gap-5">
+      <div className="flex flex-col items-center justify-center gap-5 m-5 md:flex-row md:gap-5 md:flex-wrap">
         {Object.entries(projectData).map(
           ([name, { description, image, link }]) => (
-            <div className="flex flex-col relative bg-gray-900 w-70 rounded border-2 border-transparent bg-gradient-to-b from-gray-600 to-gray-600/20 bg-origin-border overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105">
-              <div className="bg-gray-900 rounded h-[300px] w-full">
+            <div className="flex flex-col relative text-center bg-gray-900 w-70 rounded border-2 border-transparent bg-gradient-to-b from-gray-600 to-gray-600/20 bg-origin-border overflow-hidden cursor-pointer group transition-all duration-300 hover:scale-105">
+              <div className="bg-gray-900 rounded h-60 w-full">
                 <a
                   key={name}
                   href={link}
@@ -43,19 +43,18 @@ export default function ProjectsGrid() {
                   rel="noopener noreferrer"
                   className="flex flex-col"
                 >
-                  <img
-                    src={image}
-                    alt={`Preview do projeto ${name}`}
-                    loading="lazy"
-                    className="rounded-t"
-                  />
+                  <div className="w-full h-30 overflow-hidden rounded-t">
+                    <img
+                      src={image}
+                      alt={`Preview do projeto ${name}`}
+                      loading="lazy"
+                      className="rounded-t object-cover w-full h-full"
+                    />
+                  </div>
                   <div className="flex flex-col m-2 gap-2">
                     <h3 className="text-[1.3rem] font-montserrat font-[600]">
                       {name}
                     </h3>
-                    <p className="text-[1rem] font-roboto font-[400]">
-                      {description || "Sem descrição disponível"}
-                    </p>
                   </div>
                   <svg
                     width="24"

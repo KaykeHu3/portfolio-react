@@ -2,14 +2,16 @@ import fotoKayke from "../assets/fotoKayke.jpg";
 
 export default function Header() {
   return (
-    <div className="flex mx-auto mt-15 border-3 w-fit border-transparent bg-gradient-to-b from-gray-600 to-gray-600/20 bg-origin-border overflow-hidden rounded">
-      <img
-        src={fotoKayke}
-        className="h-[300px] w-[200px] rounded-l"
-        alt="Foto de Kayke"
-      />
-      <div className="flex flex-col bg-gray-900 rounded-r p-4 pt-2">
-        <h1 className="text-4xl font-open-sans font-medium bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent py-0.5">
+    <div className="flex flex-col mx-5 mt-5 md:flex-row md:mx-auto sm:mt-15 border-3 w-fit border-transparent bg-gradient-to-b from-gray-600 to-gray-600/20 bg-origin-border overflow-hidden rounded">
+      <div className="bg-gray-900 flex justify-center rounded-t">
+        <img
+          src={fotoKayke}
+          className="w-1/2 rounded sm:h-75 sm:w-50 sm:rounded-l"
+          alt="Foto de Kayke"
+        />
+      </div>
+      <div className="flex flex-col bg-gray-900 rounded-b pl-2 pb-2 sm:p-4 sm:pt-2">
+        <h1 className="text-3xl sm:text-4xl font-open-sans font-medium bg-gradient-to-r from-white to-white/40 bg-clip-text text-transparent py-0.5">
           Kayke de Paula Menezes
         </h1>
         <h2 className="text-2xl font-open-sans font-medium bg-gradient-to-r from-white to-white/10 bg-clip-text text-transparent py-0.5">
@@ -18,7 +20,7 @@ export default function Header() {
         <div className="mt-auto space-y-3">
           <a
             href="https://www.instagram.com/kaykedpm?igsh=MWllbTNzMWx6ZHNhZQ=="
-            className="text-[20px] font-montserrat font-[500] flex mt-3 items-center gap-2 group"
+            className="text-lg sm:text-xl font-montserrat font-[500] flex mt-3 items-center gap-2 group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +45,7 @@ export default function Header() {
           </a>
           <a
             href="https://www.linkedin.com/in/kayke-de-paula-985511247"
-            className="text-[20px] font-montserrat font-[500] flex mt-3 items-center gap-2 group"
+            className="text-lg sm:text-xl font-montserrat font-[500] flex mt-3 items-center gap-2 group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +70,7 @@ export default function Header() {
           </a>
           <a
             href="https://api.whatsapp.com/send?phone=5537999730571&text=Olá, Kayke!"
-            className="text-[20px] font-montserrat font-[500] flex mt-3 items-center gap-2 group"
+            className="text-lg sm:text-xl font-montserrat font-[500] flex mt-3 items-center gap-2 group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +95,7 @@ export default function Header() {
           </a>
           <a
             href="mailto:kaykedepaula23@gmail.com"
-            className="text-[20px] font-montserrat font-[500] flex mt-3 items-center gap-2 group"
+            className="text-lg sm:text-xl font-montserrat font-[500] flex mt-3 items-center gap-2 group"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
